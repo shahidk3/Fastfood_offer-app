@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 
 class ProductDetailsPage extends StatelessWidget {
-  final Map<String, dynamic> product;
+  final Map<String, Object> product;
   const ProductDetailsPage({
     super.key,
     required this.product,});
+
+    
 
   @override
   Widget build(BuildContext context) {
@@ -15,12 +17,14 @@ class ProductDetailsPage extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Text('Your favourite',
-          style: Theme.of(context).textTheme.titleLarge,),
-          const Spacer(),
+          Text( product ['title'] as String,
+          style: Theme.of(context).textTheme.titleLarge),
+          const Spacer(flex: 2,),
           Padding(
             padding: const EdgeInsets.all(16.0),
-            child: Image.asset('assets/images/meal.png'),
+            child: Image.asset( product ['imageurl'] as String,
+            scale: 3, 
+            ),
           ),
           const Spacer(flex: 2),
           Container(
@@ -31,9 +35,10 @@ class ProductDetailsPage extends StatelessWidget {
             ),
             child:Column(
               children: [
-                Text(
+                const Spacer(),
+                
+                const Text(
                   'Coupan Code:OurApp25252xyz',
-                  style: Theme.of(context).textTheme.titleLarge,
                 ),
                 
                 Padding(
@@ -42,14 +47,18 @@ class ProductDetailsPage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Theme.of(context).colorScheme.primary,
                     minimumSize: const Size(double.infinity, 50),
+                    
                   ),
                   child: const Text('Add to cart', style: TextStyle(
                     color: Colors.black,
                     fontSize: 18,
-                  ),),
+                  
+                  ),
+                  ),
                   
                   ),
                 ),
+                const Spacer(),
               ],
             )
           ),
