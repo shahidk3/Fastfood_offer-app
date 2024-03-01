@@ -28,9 +28,9 @@ class ProductCard extends StatelessWidget {
             Text(title, style: Theme.of(context).textTheme.titleMedium,),
             const SizedBox(height: 5),
             Text(
-              '50% Discounted', 
+              'At Discounted Price', 
                style: Theme.of(context).textTheme.bodySmall),
-        
+                      
             const SizedBox(height: 5),
             Center(
               child: Image(
